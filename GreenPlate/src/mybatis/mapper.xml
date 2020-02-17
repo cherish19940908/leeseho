@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?> <!--db 구문 입력 -->
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="abc">
+<select id="select" parameterType="String" resultType="DTO">select * from party where cate = #{cate} ; </select>
+<select id="select_detail" parameterType="Integer" resultType="DTO">select * from party where pnum = #{pnum} ; </select>
+<insert id="insert" parameterType="DTO">insert into party (name,email,phone,rname,addno,addr,addr1,addr2,pdate,pno,preprice,ptalk,cate,title,filename,ptime) values (#{name},#{email},#{phone},#{rname},#{addno},#{addr},#{addr1},#{addr2},#{pdate},#{pno},#{preprice},#{ptalk},#{cate},#{title},#{filename},#{ptime});</insert>
+<delete id="delete" parameterType="DTO">delete from test where id=#{id} and nick=#{nick};</delete>
+<update id="update" parameterType="DTO">update test set id=#{uid},nick=#{unick} where id=#{id} and nick=#{nick};</update>
+<select id ="listcount" resultType = "Integer" >select count(*) from party</select>
+<select id ="boardlistcount" resultType = "Integer" >select count(*) from board</select>
+<select id ="listcount_search" resultType = "Integer" >select count(*) from restaurant where type = #{type},price = #{price},home like %#{location}% ; </select>
+<insert id ="insert_license" parameterType="licenseDTO">insert into business(id,license) values(#{id},#{license}); </insert>
+<select id="topsearch" parameterType="String" resultType="DTO_AD">select * from restaurant where type = #{type} ; </select>
+<select id="locasearch" parameterType="String" resultType="rbean">select * from board where location = #{local} ; </select>
+
+<select id="navsearch" resultType="List" parameterType="DTO_AD">
+
+select * from restaurant where rnum = 
+(
+select rnum from restaurant <where>
+<if test="navloca!=null">
+location in 
+<foreach item="nloca" collection="navloca" open="(" close=")" separator="," >
+#{nloca}
+</foreach>
+</if>
+<if test="navtype!=null">
+and type in 
+<foreach item="ntype" collection="navtype" open="(" close=")" separator=",">
+#{ntype}
+</foreach>
+</if>
+<if test="navprice!=null">
+and price in 
+<foreach item="nprice" collection="navprice" open="(" close=")" separator=",">
+#{nprice}
+</foreach>
+</if>
+</where> 
+)
+
+
+</select>
+
+
+
+</mapper>
