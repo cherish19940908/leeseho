@@ -42,6 +42,74 @@ public class RestaurantWriteProAction implements Action {
 		dto.setDethome(multi.getParameter("dethome"));	
 		dto.setReadcount(0);
 		dto.setFile(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
+		String local = multi.getParameter("home");
+		System.out.println(local);
+		if (local.contains("서울")==true) {
+			local="서울";
+			dto.setLocation(local);
+		}else if (local.contains("경기")==true) {
+			local="경기";
+			dto.setLocation(local);
+		}else if (local.contains("인천")==true) {
+			local="인천";
+			dto.setLocation(local);
+		}else if (local.contains("강원")==true) {
+			local="강원";
+			dto.setLocation(local);
+		}else if (local.contains("대전")==true) {
+			local="대전";
+			dto.setLocation(local);
+		}else if (local.contains("세종특별자치시")==true) {
+			local="세종";
+			dto.setLocation(local);
+		}else if (local.contains("충남")==true) {
+			local="충남";
+			dto.setLocation(local);
+		}else if (local.contains("충북")==true) {
+			local="충북";
+			dto.setLocation(local);
+		}else if (local.contains("부산")==true) {
+			local="부산";
+			dto.setLocation(local);
+		}else if (local.contains("울산")==true) {
+			local="울산";
+			dto.setLocation(local);
+		}else if (local.contains("경남")==true) {
+			local="경남";
+			dto.setLocation(local);
+		}else if (local.contains("경북")==true) {
+			local="경북";
+			dto.setLocation(local);
+		}else if (local.contains("대구")==true) {
+			local="대구";
+			dto.setLocation(local);
+		}else if (local.contains("광주")==true) {
+			local="광주";
+			dto.setLocation(local);
+		}else if (local.contains("전남")==true) {
+			local="전남";
+			dto.setLocation(local);
+		}else if (local.contains("전북")==true) {
+			local="전북";
+			dto.setLocation(local);
+		}else if (local.contains("제주특별자치도")==true) {
+			local="제주";
+			dto.setLocation(local);
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		RestaurantWriteProService reviewWriteProService = new RestaurantWriteProService();
 		boolean isWriteSuccess = reviewWriteProService.registArticle(dto);
@@ -50,7 +118,7 @@ public class RestaurantWriteProAction implements Action {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('��Ͻ���')");
+			out.println("alert('��Ͻ���')");
 			out.println("history.back();");
 			out.println("</script>");
 		}

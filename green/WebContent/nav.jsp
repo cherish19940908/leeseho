@@ -2,46 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
-<script>
-	function total_check() {
 
-		var type = null;
-		var price = null;
-		var location = null;
-
-		for (var i = 0; i <= 16; i++) {
-			if (search.location[i].checked) {
-				location = search.location[i].value
-			}
-		}
-		for (var t = 0; t <= 5; t++) {
-			if (search.type[t].checked) {
-				type = search.location[t].value
-			}
-		}
-		for (var p = 0; p <= 3; p++) {
-			if (search.price[p].checked) {
-				price = search.price[p].value
-			}
-		}
-
-		if (location == null) {
-			alert("지역을 선택하세요")
-		} else if (type == null) {
-			alert("음식타입을 선택하세요")
-		} else if (price == null) {
-			alert("금액대를 선택하세요")
-		} else {
-			document.search.submit();
-		}
-
-	}
-</script>
 </head>
 <body>
-	<FORM action="restaurantList.bo" method="post" name="search">
+	<FORM action="restaurantList.do?command=navsearch" method="post" >
 		<div id="location">
 			<div id="location-bar">
 				<h2 id="ul-margin">지역선택</h2>
@@ -165,8 +131,8 @@
 				</div>
 			</div>
 
-			<input type="button" id="button-box" value="검색"
-				onClick="total_check()">
+			<input type="submit" id="button-box" value="검색"
+				>
 	</FORM>
 </body>
 </html>

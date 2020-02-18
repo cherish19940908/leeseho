@@ -15,6 +15,11 @@ public class DTO_AD {
 	private String dethome;
 	private String id;
 	private String location;
+	private String [] navloca;
+	private String [] navtype;
+	private String [] navprice;
+	
+	
 	public String getLocation() {
 		return location;
 	}
@@ -101,6 +106,24 @@ public class DTO_AD {
 	}
 	public void setDethome(String dethome) {
 		this.dethome = dethome;
+	}
+	public String[] getNavloca() {
+		return navloca;
+	}
+	public void setNavloca(String[] navloca) {
+		this.navloca = navloca;
+	}
+	public String[] getNavtype() {
+		return navtype;
+	}
+	public void setNavtype(String[] navtype) {
+		this.navtype = navtype;
+	}
+	public String[] getNavprice() {
+		return navprice;
+	}
+	public void setNavprice(String[] navprice) {
+		this.navprice = navprice;
 	}
 	
 

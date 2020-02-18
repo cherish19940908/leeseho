@@ -103,6 +103,15 @@ public List<DTO_AD> toplist(String type){
 	sqlSession.close();
 	return list;
 }
-
+public List<DTO_AD> navsearch(DTO_AD dtoad){
+	System.out.println("action도착");
+	List<DTO_AD> list = null;
+	SqlSession sqlSession = factory.openSession();
+	list = sqlSession.selectList("navsearch",dtoad);
+	System.out.println("aa"+list.size());
+	System.out.println("action끝");
+	sqlSession.close();
+	return list;
+}
 
 }

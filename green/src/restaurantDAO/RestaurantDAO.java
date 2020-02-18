@@ -228,13 +228,13 @@ public class RestaurantDAO {
 
 	//�뜝�룞�삕 �뜝�룞�삕�뜝占�.
 	public int insertArticle(DTO_AD article){
-        System.out.println("2"+article.getLocation());
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int num =0;
 		String sql="";
 		int insertCount=0;
-
+		
+		
 		try{
 			pstmt=con.prepareStatement("select max(rnum) from restaurant");
 			rs = pstmt.executeQuery();
@@ -244,7 +244,7 @@ public class RestaurantDAO {
 			else
 				num=1;
 
-			sql="insert into restaurant (id,name,cell,email,type,store,price,home,content,postnum,file,dethome,readcount) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			sql="insert into restaurant (id,name,cell,email,type,store,price,home,content,postnum,file,dethome,readcount,location) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			System.out.println("dfsdf");
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, article.getId());
@@ -260,6 +260,8 @@ public class RestaurantDAO {
 			pstmt.setString(11, article.getFile());
 			pstmt.setString(12, article.getDethome());
 			pstmt.setInt(13, 0);
+			pstmt.setString(14, article.getLocation());
+		
 
 			insertCount=pstmt.executeUpdate();
 
@@ -273,6 +275,8 @@ public class RestaurantDAO {
 		return insertCount;
 
 	}
+	
+	
 
 	
 //	public int updateArticle(DTO_AD article){

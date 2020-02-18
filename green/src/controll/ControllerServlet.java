@@ -47,6 +47,11 @@ public class ControllerServlet extends HttpServlet{
 				inter = Top_List.instance();
 				viewName = inter.showData(request, response);
 				request.getRequestDispatcher(viewName).forward(request, response);
+			}else if(command.equals("navsearch")){
+				System.out.println("navsearch");
+				inter = NavSearch.instance();
+				viewName = inter.showData(request, response);
+				request.getRequestDispatcher(viewName).forward(request, response);
 			}
 			else {
 				viewName = "error.html";
