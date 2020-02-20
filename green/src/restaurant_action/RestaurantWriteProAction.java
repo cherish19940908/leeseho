@@ -35,6 +35,10 @@ public class RestaurantWriteProAction implements Action {
 		dto.setCell(multi.getParameter("cell"));
 		dto.setType(multi.getParameter("type"));
 		dto.setStore(multi.getParameter("store_name"));
+		dto.setStart_time(multi.getParameter("start_time"));
+		dto.setFinish_time(multi.getParameter("finish_time"));
+		dto.setBreak_time(multi.getParameter("break_time"));
+		dto.setParking(multi.getParameter("parking"));
 		dto.setPrice(multi.getParameter("price"));
 		dto.setHome(multi.getParameter("home"));
 		dto.setContent(multi.getParameter("content"));
@@ -96,20 +100,7 @@ public class RestaurantWriteProAction implements Action {
 			local="제주";
 			dto.setLocation(local);
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		
 		RestaurantWriteProService reviewWriteProService = new RestaurantWriteProService();
 		boolean isWriteSuccess = reviewWriteProService.registArticle(dto);

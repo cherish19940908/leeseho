@@ -11,7 +11,7 @@ String s = URLEncoder.encode("중식","UTF-8");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="css/gpstyleparty.css">
 <link rel="stylesheet" type="text/css" href="css/loginstyle.css"/>
-<link rel="stylesheet" type="text/css" href="css/party.css"/>
+<link rel="stylesheet" type="text/css" href="css/party1.css"/>
 
 <link rel='stylesheet' type='text/css'
 	href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic'>
@@ -43,7 +43,7 @@ String s = URLEncoder.encode("중식","UTF-8");
 <div id="section">
 
 <div class="picbox">
-<a href="partycate.bo?cate=<%=k%>"><div class="partypic" name="sam">
+<a href="partycatere.bo?cate=<%=k%>"><div class="partypic" name="sam">
 <div id="samsin" align="center">안녕하세요.</div>
 </div>
 <div class="pictitle">
@@ -52,7 +52,7 @@ String s = URLEncoder.encode("중식","UTF-8");
 </div>
 
 <div class="picbox">
-<a href="partycate.bo?cate=<%=s%>"><div class="partypic" name="jock">
+<a href="partycatere.bo?cate=<%=s%>"><div class="partypic" name="jock">
 <div id="jocksin" align="center">안녕하세요.</div>
 </div>
 <div class="pictitle">
@@ -61,7 +61,7 @@ String s = URLEncoder.encode("중식","UTF-8");
 </div>
 
 <div class="picbox">
-<a href="partycate.bo?cate=<%=j%>"><div class="partypic" name="bos">
+<a href="partycatere.bo?cate=<%=j%>"><div class="partypic" name="bos">
 <div id="bossin" align="center">안녕하세요.</div>
 </div>
 <div class="pictitle">
@@ -70,7 +70,7 @@ String s = URLEncoder.encode("중식","UTF-8");
 </div>
 
 <div class="picbox">
-<a href="partycate.bo?cate=<%=l%>"><div class="partypic" name="chi">
+<a href="partycatere.bo?cate=<%=l%>"><div class="partypic" name="chi">
 <div id="chisin"  align="center">안녕하세요.</div>
 </div>
 <div class="pictitle">
@@ -79,7 +79,7 @@ String s = URLEncoder.encode("중식","UTF-8");
 </div>
 
 <div class="picbox">
-<a href="partycate.bo?cate=세계음식"><div class="partypic" name="bang">
+<a href="partycatere.bo?cate=세계음식"><div class="partypic" name="bang">
 <div id="bangsin" align="center">안녕하세요.</div>
 </div>
 <div class="pictitle">

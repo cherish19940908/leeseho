@@ -1,4 +1,3 @@
-<%@page import="javax.websocket.Session"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%
 	request.setCharacterEncoding("utf-8");
@@ -119,6 +118,9 @@
 		var home = advertisement.home.value
 		var food = advertisement.type.value
 		var price = advertisement.price.value
+		var parking = advertisement.parking.value
+        var break_time = advertisement.break_time.value
+		
 
 		if (name == "") {
 
@@ -145,7 +147,17 @@
 
 			alert("메뉴 가격대 선택해 주세요")
 			advertisement.price.focus()
-		}  
+		}
+		else if (break_time == "") {
+
+			alert("브레이크타임을 입력해주세요.")
+			advertisement.break_time.focus()
+		}
+		else if (parking == "주차가능여부를 선택해주세요") {
+
+			alert("주차가능여부를 선택해주세요")
+			advertisement.parking.focus()
+		}
 		else if (store == "") {
 			alert("식당이름을 입력해주세요.")
 			advertisement.store.focus()
@@ -266,6 +278,104 @@
 								</div>
 							</td>
 						</tr>
+						
+						<tr>
+							<td class="l">영업시간</td>
+						</tr>
+						<tr>
+							<td>
+								<div> 
+								    오픈
+									<select class="o" name="start_time"style ="width : 100px;margin-left : 50px">
+									
+										<option>00시</option>
+										<option>01시</option>
+										<option>02시</option>
+										<option>03시</option>
+										<option>04시</option>
+										<option>05시</option>
+										<option>06시</option>
+										<option>07시</option>
+										<option>08시</option>
+										<option>09시</option>
+										<option>10시</option>
+										<option>11시</option>
+										<option>12시</option>
+										<option>13시</option>
+										<option>14시</option>
+										<option>15시</option>
+										<option>16시</option>
+										<option>17시</option>
+										<option>18시</option>
+										<option>19시</option>
+										<option>20시</option>
+										<option>21시</option>
+										<option>22시</option>
+										<option>23시</option>
+									</select>
+								마감
+									<select class="o" name="finish_time" style ="width : 100px;margin-left : 50px">
+									
+										<option>00시</option>
+										<option>01시</option>
+										<option>02시</option>
+										<option>03시</option>
+										<option>04시</option>
+										<option>05시</option>
+										<option>06시</option>
+										<option>07시</option>
+										<option>08시</option>
+										<option>09시</option>
+										<option>10시</option>
+										<option>11시</option>
+										<option>12시</option>
+										<option>13시</option>
+										<option>14시</option>
+										<option>15시</option>
+										<option>16시</option>
+										<option>17시</option>
+										<option>18시</option>
+										<option>19시</option>
+										<option>20시</option>
+										<option>21시</option>
+										<option>22시</option>
+										<option>23시</option>
+									</select>
+								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>브레이크타임</td>
+						</tr>
+
+						<tr>
+							<td>
+								<div>
+									<input type="text" class="f" name="break_time" placeholder="ex)14시~16시"
+										onfocus="this.placeholder = ''"
+										onblur="this.placeholder = 'ex)14시~16시'">
+								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<td class="l">주차가능여부</td>
+						</tr>
+						<tr>
+							<td>
+								<div>
+									<select class="o" name="parking">
+										<option>주차가능여부를 선택해주세요</option>
+										<option>주차가능</option>
+										<option>주차불가능</option>
+									
+									</select>
+								</div>
+							</td>
+						</tr>
+						
+						
 						<tr>
 							<td class="l">식당이름</td>
 						</tr>

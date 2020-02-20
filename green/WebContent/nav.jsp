@@ -105,7 +105,7 @@
 					<div class="boxes">
 						<ul id="menu-ul">
 							<li><input type="checkbox" id="price-1" name="price"
-								value="만원이하"> <label for="price-1"><img
+								value="1만원이하"> <label for="price-1"><img
 									src="img\1-yes.jpg"></label></li>
 							<li><input type="checkbox" id="price-2" name="price"
 								value="1만원대"> <label for="price-2"><img

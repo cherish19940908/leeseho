@@ -18,6 +18,7 @@ import action.BoardReplyProAction;
 import action.BoardSearchAction;
 import action.BoardWriteProAction;
 import member.License_action;
+import restaurant_action.RestaurantDetailAction;
 import restaurant_action.RestaurantListAction;
 import restaurant_action.RestaurantWriteProAction;
 import review_action.ReviewDeleteProAction;
@@ -184,26 +185,26 @@ public class BoardFrontController extends javax.servlet.http.HttpServlet
 				e.printStackTrace();
 			}
 		}else if(command.equals("/reviewSearchList.bo")){
-			System.out.println("1¹ø reviewSearchList.bo ÀÛµ¿");
+			System.out.println("1ï¿½ï¿½ reviewSearchList.bo ï¿½Ûµï¿½");
 			action = new ReviewSearchAction();
 			try{
-				System.out.println("forward ½ÇÇà");
+				System.out.println("forward ï¿½ï¿½ï¿½ï¿½");
 				forward=action.execute(request, response);
 			}catch(Exception e){
 				e.printStackTrace();
 			}
 		}
 		else if(command.equals("/boardSearchList.bo")){
-			System.out.println("1¹ø reviewSearchList.bo ÀÛµ¿");
+			System.out.println("1ï¿½ï¿½ reviewSearchList.bo ï¿½Ûµï¿½");
 			action = new BoardSearchAction();
 			try{
-				System.out.println("forward ½ÇÇà");
+				System.out.println("forward ï¿½ï¿½ï¿½ï¿½");
 				forward=action.execute(request, response);
 			}catch(Exception e){
 				e.printStackTrace();
 			}
 		}
-		//½Ä´çÁ¤º¸ µî·ÏÇÒ¶§
+		//ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½
 		else if(command.equals("/restaurantWritePro.bo")){
 			action  = new RestaurantWriteProAction();
 			try {
@@ -211,9 +212,9 @@ public class BoardFrontController extends javax.servlet.http.HttpServlet
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}//½Ä´çµî·ÏÆäÀÌÁö¸¦ µé¾î°¥¶§ »ç¾÷ÀÚµî·ÏÀÌ µÇ¾îÀÖ´ÂÁö È®ÀÎÇÏ±âÀ§ÇÑ ÀÛ¾÷
+		}//ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ï±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
 		else if(command.equals("/licensefind.bo")){
-			System.out.println("1¹ø"+request.getParameter("id"));
+			System.out.println("1ï¿½ï¿½"+request.getParameter("id"));
 			String id = request.getParameter("id");
 			request.setAttribute("id", id);
 			action = new License_action();
@@ -223,7 +224,7 @@ public class BoardFrontController extends javax.servlet.http.HttpServlet
 				e.printStackTrace();
 			}
 		}
-		//Á¶°Ç°Ë»ö ÇßÀ»°æ¿ì ÇØ´ç Á¤º¸ º¸¿©ÁÖ±âÀ§ÇÑ ÀÛ¾÷
+		//ï¿½ï¿½ï¿½Ç°Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
 		else if(command.equals("/restaurantList.bo")){
 			action = new RestaurantListAction();
 			try{
@@ -232,7 +233,14 @@ public class BoardFrontController extends javax.servlet.http.HttpServlet
 				e.printStackTrace();
 			}
 		}
-		
+		else if(command.equals("/restaurantDetail.bo")){
+			action = new RestaurantDetailAction();
+			try{
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
 		if(forward != null){
 			
 			if(forward.isRedirect()){

@@ -1,17 +1,18 @@
-<%@page import="javax.websocket.Session"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%
 	request.setCharacterEncoding("utf-8");
-
+     String id1= null;
+     String nick1 =null;
+     
     if(session.getAttribute("id")==null){
     	out.println("<script>");
 		out.println("alert('로그인이 필요합니다..');");
 		out.println("location.href='loginpage.jsp'");
 		out.println("</script>");
-    }
-    else{
-    	String id = (String)session.getAttribute("id");
-    	
+    }else{
+    
+    id1 = (String)session.getAttribute("id");
+    nick1 = (String)session.getAttribute("nick");
     }
 
 %>
@@ -41,7 +42,6 @@
 
 <link rel="stylesheet" type="text/css" href="css/Icomoon/style.css" />
 <link rel="stylesheet" type="text/css" href="css/animated-header.css" />
-
 <script type="text/javascript" src="_scripts/jquery-2.0.2.min.js"></script>
 <script type="text/javascript" src="_scripts/jquery-ui-1.10.4.min.js"></script>
 <script type="text/javascript" src="_scripts/jquery.isotope.min.js"></script>
@@ -57,73 +57,21 @@
 	function parregi() {
 		var email = party.email.value;
 		var phone = party.phone.value;
-		var rname = party.rname.value;	
+		var rname = party.rname.value;
+		var addno = party.addno.value;
 		var addr = party.addr.value;
-		var addr1 = party.addr1.value;		
+		var addr1 = party.addr1.value;
+		var addr2 = party.addr2.value;
 		var pdate = party.pdate.value;
 		var pno = party.pno.value;
 		var preprice = party.preprice.value;
 		var ptalk = party.ptalk.value;
-		var cate = party.cate.value;
-		var title = party.title.value;
-		var name = party.name.value;
-		var num= /^[0-9]+$/;
-		if (name == "")
-		{
-			alert("이름을 입력하세요");
-			party.name.focus();
-		}
-		else if (email == "")
-		{
-			alert("이메일을 입력하세요");
-			party.email.focus();
-		}else if (phone == "")
-		{
-			alert("전화번호를 입력하세요");
-			party.phone.focus();
-		}else if (rname == "")
-		{
-			alert(rname.value);
-			party.rname.focus();
-		}else if (addr == "")
-		{
-			alert("주소를 입력하세요");
-			party.addr.focus();
-		}else if (addr1 == "")
-		{
-			alert("상세주소를 입력하세요");
-			party.addr1.focus();
-		}else if (pdate == "")
-		{
-			alert("날짜를 입력하세요");
-			party.pdate.focus();
-		}else if (pno == "")
-		{
-			alert("파티원을 입력하세요");
-			party.pno.focus();
-		}else if (preprice == "")
-		{
-			alert("가격을 입력하세요");
-			party.preprice.focus();
-		}else if (false === num.test(preprice)) {
-			alert('예상 금액은 숫자만 입력 가능합니다.');
-			party.preprice.focus;
-					      }
-		else if (ptalk == "")
-		{
-			alert("남기실 말을 입력하세요");
-			party.ptalk.focus();
-		}else if (cate == "")
-		{
-			alert("음식을 선택해주세요 ");
-			party.cate.focus();
-		}else if (title == "")
-		{
-			alert("주제를  입력하세요");
-			party.title.focus();
-		}
 
-		else{
+		if (email == null || phone == null || rname == null || addno == null
+				|| addr == null || addr1 == null || pdate == null
+				|| pno == null || preprice == null || ptalk == null) {
+			alert("입력되지 않은 사항이 있습니다.");
+		} else {
 			document.party.submit();
 		}
 	}
@@ -182,10 +130,12 @@
 <body>
 	<%@include file = "header.jsp"%>
 
-	<section style = "width: 100%; margin-bottom: 30px; height: 2190px;">
-		<form name="party" action="sang.do?command=insert" method="post" enctype="multipart/form-data">
+	<section>
+		<form name="party" action="partyregi.bo" method="post" enctype="multipart/form-data">
+		<input type="hidden" id="id1" name="id1" value="<%=id1%>">
+		<input type="hidden" id="nick1" name="nick1" value="<%=nick1%>">
 			<div style="width: 1900px; height: 86px;"></div>
-			<article text-align="center"></article>
+			<article></article>
 			<div id="ptitle">
 
 				<img src="img/ptitle.jpg" width="1900px;" height="58px;">
@@ -194,21 +144,27 @@
 				<tbody>
 					<tr style="height: 10px"></tr>
 					<tr style="height: 20px;">
-						<td colspan="2"><h3 style="font-weight: 600">주최자 정보</h3></td>
+						<td colspan="2"><h3 style="font-weight: 600">파티모집 제목</h3></td>
 					</tr>
-                    <tr>
-						<td class="l">주최자 이름</td>
+
+					<tr>
+						<td class="l">제목</td>
 					</tr>
 					<tr>
 						<td>
 							<div>
-								<input type="text" name="name" class="f"
-									placeholder="이름을 입력하세요" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = '이름을 입력하세요'">
+								<input type="text" name="title" class="f"
+									placeholder="파티모집 제목을 입력하세요" onfocus="this.placeholder = ''"
+									onblur="this.placeholder = '파티모집 제목을 입력하세요'">
 							</div>
 
 						</td>
 					</tr>
+					
+					<tr style="height: 20px;">
+						<td colspan="2"><h3 style="font-weight: 600">주최자 정보</h3></td>
+					</tr>
+
 					<tr>
 						<td class="l">이메일</td>
 					</tr>
@@ -222,8 +178,6 @@
 
 						</td>
 					</tr>
-					
-					
 
 					<tr>
 						<td>휴대전화</td>
@@ -249,14 +203,16 @@
 					<tr>
 						<td>
 							<div><select name="cate" class="f">
-									<option>한식</option>
-									<option>중식</option>
-									<option>일식</option>
-									<option>양식</option>
-									<option>세계음식</option>
-									<option>뷔페</option>
+									<option value="한식">한식</option>
+									<option value="중식">중식</option>
+									<option value="일식">일식</option>
+									<option value="양식">양식</option>
+									<option value="세계음식">세계음식</option>
+									<option value="뷔페">뷔페</option>
 								</select>
-								
+								<!-- <input type="text" id="cata" placeholder="카테고리를을 입력하여 주십시오."
+									name="cata" class="f" onfocus="this.placeholder = ''"
+									onblur="this.placeholder = '식당이름을 입력하여 주십시오.'"> -->
 							</div>
 						</td>
 					</tr>
@@ -273,18 +229,6 @@
 							</div>
 						</td>
 					</tr>
-					<tr>
-						<td class="l">제목</td>
-					</tr>
-					<tr>
-						<td>
-							<div>
-								<input type="text" name="title" id = "title" placeholder="제목을 입력하세요"
-									name="rname" class="f" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = '제목을 입력하세요.'">
-							</div>
-						</td>
-					</tr>
 
 
 					<tr>
@@ -296,7 +240,7 @@
 								<input type="text" id="addpost" placeholder="우편번호"
 									name="addno" style="border: none"> <input
 									type="button" onclick="findaddress()" value="우편번호 찾기"
-									class="btn btn-success" style="margin-left: 87px;">
+									class="btn btn-success" style="margin-left: 50px;">
 							</div>
 						</td>
 					</tr>
@@ -330,6 +274,18 @@
 							<div>
 								<input type="text" id="extraaddress" name="addr2"
 									placeholder="참고항목">
+							</div>
+						</td>
+					</tr>
+					
+					<tr>
+						<td class="l">첨부사진</td>
+					</tr>
+					<tr>
+						<td>
+							<div>
+								<input type="file" id="rfile" placeholder="첨부파일"
+									name="rfile" style="border: none"> 
 							</div>
 						</td>
 					</tr>
@@ -417,15 +373,15 @@
 					</tr>
 
 					<tr>
-						<td>파티 예상 금액</td>
+						<td>파티 1인당 예상 금액</td>
 					</tr>
 
 					<tr>
 						<td>
 							<div>
 								<input type="text" name="preprice" class="f"
-									placeholder="인당 예상 금액을 입력하세요 ex)15000" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = '인당 예상 금액을 입력하세요 ex)15000'">
+									placeholder="1인당 예상 금액을 입력하여주세요." onfocus="this.placeholder = ''"
+									onblur="this.placeholder = '예상 금액을 입력하여주세요.'">
 							</div>
 						</td>
 					</tr>
@@ -448,25 +404,13 @@
 							</div>
 						</td>
 					</tr>
-					
-					<tr>
-						<td>썸네일 사진</td>
-					</tr>
-
-					<tr>
-						<td>
-							<div>
-						     <input type = "file" class="f" name ="filename"required="required">
-							</div>
-						</td>
-					</tr>
 
 
 
 					<tr>
 						<td>
-							<input type ="button" onClick="parregi()"  class="btn btn-success"
-								style="width: 400px; height: 40px; margin-left: 9px;"value = "모집하기">
+							<button onClick="parregi()" type="submit" class="btn btn-success"
+								style="width: 400px; height: 40px; margin-left: 9px;">모집하기</button>
 						</td>
 					</tr>
 

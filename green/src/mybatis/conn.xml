@@ -7,6 +7,11 @@
 		<typeAlias type="model.LicenseDTO" alias="licenseDTO"/>
 		<typeAlias type="vo.DTO_AD" alias="DTO_AD"/>
 		<typeAlias type="vo.ReviewBean" alias="rbean"/>
+		<typeAlias type="party.PartyDTO" alias="pt"/>
+		<typeAlias type="party.Preview" alias="pr"/>
+		<typeAlias type="party.ApplyDTO" alias="ap"/>
+		<typeAlias type="resdat.resdatDTO" alias="rs"/>
+		<typeAlias type="restaurant.restaurantDTO" alias="rt"/>
 	</typeAliases>
 
 

@@ -30,7 +30,21 @@
 <script type="text/javascript" src="_scripts/login.js"></script>
 </head>
 <body>
-	
+	<%
+		PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
+		int listCount = pageInfo.getListCount();
+		int nowPage = pageInfo.getPage();
+		int maxPage = pageInfo.getMaxPage();
+		int startPage = pageInfo.getStartPage();
+		int endPage = pageInfo.getEndPage();
+	%>
+
+	<%
+		int pageNumber = 1; //1 이라는 것은 기본 적으로 1페이지를 의미하는거에요 무슨 페이지든 1페이지는 있으닌까
+		if (request.getParameter("pageNumber") != null) {
+			pageNumber = Integer.parseInt(request.getParameter("pageNumber")); //파라디터는 이런식으로 타입을 변경시켜주는 함수를 사용해야한다.
+		}
+	%>
 
 
 	<%@include file="header.jsp"%>
@@ -59,12 +73,12 @@
 					<tr>
 						<div style="width: 1316px; height: 255px; margin-top: 30px">
 							<div
-								style="margin-left: 243px; border-bottom: solid 1px; width: 66%; min-height: 283px;">
+								style="margin-left: 243px; border-bottom : solid 1px;border-color:#dbdbdb; width: 66%; min-height: 283px;">
 
-								<a href="restaurant.jsp"><span
+								<a href="restaurantDetail.bo?rnum=<%=articleList.get(i).getRnum()%>&page=<%=nowPage%>"><span
 									style="position: relative; top: 25px;"><img
 										src="restaurantUpload/<%=articleList.get(i).getFile()%>"
-										style="width: 340px"></span></a> <span
+										style="width: 340px;height: 220px;"></span></a> <span
 									style="width: 200px; height: 50px; position: relative; left: 35px; bottom: 180px; font-size: 35px;"><%=articleList.get(i).getStore()%></span>
 								<span
 									style="position: relative; left: 46px; bottom: 180px; font-size: 44px; color: green;">4.5</span>
@@ -72,6 +86,8 @@
 									style="position: relative; left: 380px; bottom: 180px; font-size: 17px;"><%=articleList.get(i).getHome()%>
 									<%=articleList.get(i).getDethome()%>
 								</div>
+								<span style = "position : relative; left : 822px ;bottom :248px; font-size : 20px"><img src="img/readcount.png" style ="width: 20px;"> &nbsp;<%= articleList.get(i).getReadcount()%></span>
+								<span style = "position : relative; left: 715px; bottom:10px;"><%=articleList.get(i).getStore() %> 더보기 ></span>
 
 
 							</div>
@@ -82,7 +98,50 @@
 				<%
 					}
 				%>
-				
+				<div style="text-align: center; margin-top: 70px">
+					<section id="pageList">
+						<%
+							if (nowPage <= 1) {
+						%>
+						[이전]&nbsp;
+						<%
+							} else {
+						%>
+						<a href="restaurantList.bo?page=<%=nowPage - 1%>">[이전]</a>&nbsp;
+						<%
+							}
+						%>
+
+						<%
+							for (int a = startPage; a <= endPage; a++) {
+								if (a == nowPage) {
+						%>
+						[<%=a%>]
+						<%
+							} else {
+						%>
+						<a href="restaurantList.bo?page=<%=a%>">[<%=a%>]
+						</a>&nbsp;
+						<%
+							}
+						%>
+						<%
+							}
+						%>
+
+						<%
+							if (nowPage >= maxPage) {
+						%>
+						[다음]
+						<%
+							} else {
+						%>
+						<a href="restaurantList.bo?page=<%=nowPage + 1%>">[다음]</a>
+						<%
+							}
+						%>
+					</section>
+				</div>
 
 			</div>
 
@@ -102,7 +161,7 @@
 						"mapHeight" : "450"
 					}).render();
 				</script>
-				</span>
+				
 				<div id="con">
 					<img src="img/con-1.jpg">
 				</div>

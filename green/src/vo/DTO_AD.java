@@ -1,6 +1,7 @@
 package vo;
 
 public class DTO_AD {
+	private int rnum;
 	private String name;
 	private String cell;
 	private String email;
@@ -15,26 +16,19 @@ public class DTO_AD {
 	private String dethome;
 	private String id;
 	private String location;
+	private String parking;
+	private String start_time;
+	private String finish_time;
+	private String break_time;
 	private String [] navloca;
 	private String [] navtype;
 	private String [] navprice;
-	
-	
-	public String getLocation() {
-		return location;
+	public int getRnum() {
+		return rnum;
 	}
-	public void setLocation(String location) {
-		this.location = location;
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
 	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	
-	
-	
 	public String getName() {
 		return name;
 	}
@@ -107,6 +101,42 @@ public class DTO_AD {
 	public void setDethome(String dethome) {
 		this.dethome = dethome;
 	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	public String getParking() {
+		return parking;
+	}
+	public void setParking(String parking) {
+		this.parking = parking;
+	}
+	public String getStart_time() {
+		return start_time;
+	}
+	public void setStart_time(String start_time) {
+		this.start_time = start_time;
+	}
+	public String getFinish_time() {
+		return finish_time;
+	}
+	public void setFinish_time(String finish_time) {
+		this.finish_time = finish_time;
+	}
+	public String getBreak_time() {
+		return break_time;
+	}
+	public void setBreak_time(String break_time) {
+		this.break_time = break_time;
+	}
 	public String[] getNavloca() {
 		return navloca;
 	}
@@ -125,6 +155,7 @@ public class DTO_AD {
 	public void setNavprice(String[] navprice) {
 		this.navprice = navprice;
 	}
+
 	
 
 }

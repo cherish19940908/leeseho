@@ -58,7 +58,7 @@ font-size : 20px;
 }
  #conta{
  float:left;
-    width: 770px;
+    width: 900px;
  }
 .jumbotron {
   text-align: center;
@@ -73,7 +73,7 @@ font-size : 20px;
 }
 .restaur{
 	float:left;
-	width:770px;
+	width:900px;
 	height:650px;
 }
 .restauinfo{
@@ -99,7 +99,7 @@ font-size : 20px;
   background-color:#f6f6f6;
   float:left;
   text-align:left;
-  width:770px;
+  width:900px;
   height:180px;}
 
 #recommand #rt {
@@ -166,7 +166,7 @@ font-size : 20px;
 }
 #datgul{
 	float:left;
-	width:770px;
+	width:900px;
 	height:820px;
 	 background-color:#f6f6f6;
 	border-radius:10px;

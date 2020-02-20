@@ -42,6 +42,70 @@ and price in
 
 </select>
 
-
+<select id="selectParty" parameterType="Integer" resultType="pt">
+		select * from party where pnum = #{pnum} and pdate > now() order by pnum;
+	</select>
+	
+	<select id="selectlistParty" parameterType="String" resultType="pt">
+		select * from party where cate = #{cate} and pdate > now() order by pnum;
+	</select>
+	
+	<select id="selectPartyre" parameterType="Integer" resultType="pt">
+		select * from party where pnum = #{pnum} and now() > pdate order by pnum;
+	</select>
+	
+	<select id="selectlistPartyre" parameterType="String" resultType="pt">
+		select * from party where cate = #{cate} and now() > pdate order by pnum;
+	</select>
+	
+	<insert id="insertParty" parameterType="pt">
+		insert into party (title,id,nick,email,phone,cate,rname,addno,addr,addr1,addr2,rfile,pdate,ptime,sins,sinf,pno,preprice,ptalk) values(#{title},#{id},#{nick},#{email},#{phone},#{cate},#{rname},#{addno},#{addr},#{addr1},#{addr2},#{rfile},#{pdate},#{ptime},#{sins},#{sinf},#{pno},#{preprice},#{ptalk});
+	</insert>
+	
+	
+	<!--   preview   파티후기 댓글        -->
+	
+	<select id="selectlistPreview" parameterType="Integer" resultType="pr">
+		select * from preview where pnum = #{pnum} order by rpostnum desc limit 23;
+	</select>
+	
+	<insert id="insertPreview" parameterType="pr">
+		insert into preview (pnum, id, nick, rcontent, date) values(#{pnum},#{id},#{nick},#{rcontent},now());
+	</insert>
+	
+	<!--   preview   파티 신청        -->
+	
+	
+	<insert id="insertApply" parameterType="ap">
+		insert into party_apply (pnum, id, psdate) values(#{pnum},#{id},now());
+	</insert>
+	
+	<select id="selectApply" parameterType="ap" resultType="String">
+		select psnum from party_apply where pnum = #{pnum} and id = #{id};
+	</select>
+	
+	<select id="selectApplycount" parameterType="Integer" resultType="Integer">
+		select count(*) as count_apply from party_apply where pnum = #{pnum};
+	</select>
+	
+	
+	
+	
+	
+	<!--    맛집 베스트 평점 순    -->
+	<select id="selectmasjip" resultType="rs">
+		select rnum, avg(pyung) as avg_pyung from resdat group by rnum order by avg(pyung) desc limit 10;
+	</select>
+	
+	<!--   식당번호와 같은 식당 정보 찾아오기  -->
+	<select id="selectRestau" parameterType="Integer" resultType="rt">
+		select * from restaurant where rnum = #{rnum};
+	</select>
+	
+	<!-- 가장 최근의 댓글 하나 뽑아오기 식당별 -->
+	
+	<select id="selectResdat" parameterType="Integer" resultType="rs">
+		select * from resdat where rnum = #{rnum} order by pyung desc limit 1;
+	</select>
 
 </mapper>

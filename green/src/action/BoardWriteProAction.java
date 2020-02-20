@@ -4,7 +4,6 @@ import java.io.PrintWriter;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.websocket.Session;
 
 import svc.BoardWriteProService;
 import vo.ActionForward;
@@ -44,7 +43,7 @@ public class BoardWriteProAction implements Action {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('µî·Ï½ÇÆÐ')");
+			out.println("alert('ï¿½ï¿½Ï½ï¿½ï¿½ï¿½')");
 			out.println("history.back();");
 			out.println("</script>");
 		}
