@@ -31,16 +31,14 @@ public class RestaurantDAO {
 	}
 
 	//조검 검색에 해당하는 게시물이 몇개있는지 
-	public int selectListCount(DTO_AD dto) {
-          System.out.println("selectListCount"+dto.getLocation());
+	public int selectListCount() {
+  
 		int listCount= 0;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
 		try{
-			pstmt=con.prepareStatement("select count(*) from board where type=? and price = ? and home like '%"+dto.getLocation()+"%'");
-			pstmt.setString(1, dto.getType());
-			pstmt.setString(2, dto.getPrice());
+			pstmt=con.prepareStatement("select count(*) from restaurant");
 			rs = pstmt.executeQuery();
 
 			if(rs.next()){

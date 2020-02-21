@@ -284,5 +284,10 @@ public class partyService implements partyCommandInter {
 		System.out.println("bb"+list.size());
 		return "board1.jsp";
 	}
+	@Override
+	public String showData(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

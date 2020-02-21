@@ -18,6 +18,7 @@ public interface partyCommandInter {
 	boolean seleApply(HttpServletRequest request, HttpServletResponse response) throws Exception;
 	String license(HttpServletRequest request, HttpServletResponse response) throws Exception;
 	String search(HttpServletRequest request, HttpServletResponse response) throws Exception;
+	String showData(HttpServletRequest request, HttpServletResponse response) throws Exception;
 	}
 	
 

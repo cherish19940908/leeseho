@@ -11,7 +11,7 @@ import vo.DTO_AD;
 
 public class RestaurantListService {
 	
-	//Á¶°Ç°Ë»ö °á°ú ÀÖ´ÂÁö ¾ø´Â ¸ÕÀú È®ÀÎÈÄ ¾øÀ¸¸é °æ°í¹®±¸ º¸³»±â À§ÇÑ ÀÛ¾÷
+	//ï¿½ï¿½ï¿½Ç°Ë»ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
 	public boolean findcondition(DTO_AD dto) throws Exception {
 		boolean findResult = false;
 		Connection con = getConnection();
@@ -31,20 +31,20 @@ public class RestaurantListService {
 		Connection con = getConnection();
 		RestaurantDAO boardDAO = RestaurantDAO.getInstance();
 		boardDAO.setConnection(con);
-		listCount = boardDAO.selectListCount(dto);
+		listCount = boardDAO.selectListCount();
 		close(con);
 		return listCount;
 		
 	}
 
 	public ArrayList<DTO_AD> getArticleList(int page, int limit,DTO_AD dto) throws Exception{
-	    System.out.println("getArticlea¸Þ¼Òµå Ãâ·Â");
+	    System.out.println("getArticleaï¿½Þ¼Òµï¿½ ï¿½ï¿½ï¿½");
 		ArrayList<DTO_AD> articleList = null;
 		Connection con = getConnection();
 		RestaurantDAO restaurantDAO = RestaurantDAO.getInstance();
 		restaurantDAO.setConnection(con);
 		articleList = restaurantDAO.selectArticleList(page,limit,dto);
-		System.out.println("¸®ÅÏ¹ÞÀº readcount"+articleList.get(0).getReadcount());
+		System.out.println("ï¿½ï¿½ï¿½Ï¹ï¿½ï¿½ï¿½ readcount"+articleList.get(0).getReadcount());
 		close(con);
 		return articleList;
 		

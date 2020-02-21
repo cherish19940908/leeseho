@@ -3,6 +3,8 @@ package restaurant_svc;
 import static db.JdbcUtil.*;
 import java.sql.Connection;
 import java.util.ArrayList;
+
+import restaurantDAO.RestaurantDAO;
 import review_dao.ReviewDAO;
 import vo.ReviewBean;
 
@@ -12,17 +14,17 @@ public class ReviewListService {
 		
 		int listCount = 0;
 		Connection con = getConnection();
-		ReviewDAO reviewDAO = ReviewDAO.getInstance();
-		reviewDAO.setConnection(con);
-		listCount = reviewDAO.selectListCount();
-		System.out.println("1¹ø ¸®½ºÆ®Ä«¿îÆ® ÀÛµ¿"+listCount);
+		RestaurantDAO restaurantDAO = RestaurantDAO.getInstance();
+		restaurantDAO.setConnection(con);
+		listCount = restaurantDAO.selectListCount();
+		System.out.println("1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®Ä«ï¿½ï¿½Æ® ï¿½Ûµï¿½"+listCount);
 		close(con);
 		return listCount;
 		
 	}
 
 	public ArrayList<ReviewBean> getArticleList(int page, int limit) throws Exception{
-		System.out.println("ÀüÃ¼Ãâ·Â¹® ¸Þ¼Òµå ÀÛµ¿");
+		System.out.println("ï¿½ï¿½Ã¼ï¿½ï¿½Â¹ï¿½ ï¿½Þ¼Òµï¿½ ï¿½Ûµï¿½");
 		ArrayList<ReviewBean> articleList = null;
 		Connection con = getConnection();
 		ReviewDAO reviewDAO = ReviewDAO.getInstance();
@@ -34,13 +36,13 @@ public class ReviewListService {
 		
 	}
 	public ArrayList<ReviewBean> getTitleList( ReviewBean reviewbean) throws Exception{
-		System.out.println("gettitlelist È®ÀÎ");
+		System.out.println("gettitlelist È®ï¿½ï¿½");
 		ArrayList<ReviewBean> articleList = null;
 		Connection con = getConnection();
 		ReviewDAO reviewDAO = ReviewDAO.getInstance();
 		reviewDAO.setConnection(con);
 		articleList = reviewDAO.selectTitleList(reviewbean);
-		System.out.println("¸Þ¼Òµå¿¡¼­ ¸®ÅÏ¹ÞÀº°ª È®ÀÎ="+articleList.get(0).getRtitle());
+		System.out.println("ï¿½Þ¼Òµå¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½="+articleList.get(0).getRtitle());
 		close(con);
 		return articleList;
 		

@@ -30,7 +30,7 @@
 <script type="text/javascript" src="_scripts/login.js"></script>
 </head>
 <body>
-	<%
+	 <%
 		PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
 		int listCount = pageInfo.getListCount();
 		int nowPage = pageInfo.getPage();
@@ -39,12 +39,7 @@
 		int endPage = pageInfo.getEndPage();
 	%>
 
-	<%
-		int pageNumber = 1; //1 이라는 것은 기본 적으로 1페이지를 의미하는거에요 무슨 페이지든 1페이지는 있으닌까
-		if (request.getParameter("pageNumber") != null) {
-			pageNumber = Integer.parseInt(request.getParameter("pageNumber")); //파라디터는 이런식으로 타입을 변경시켜주는 함수를 사용해야한다.
-		}
-	%>
+	
 
 
 	<%@include file="header.jsp"%>

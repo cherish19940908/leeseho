@@ -4,10 +4,7 @@
   <display-name>008_mybatis_mvc2_xml</display-name>
 
 
-  <servlet-mapping>
-  	<servlet-name>commandS</servlet-name>
-  	<url-pattern>*.do</url-pattern>
-  </servlet-mapping>
+  
   <servlet>
   	<servlet-name>commandS</servlet-name>
   	<servlet-class>controll.ControllerServlet</servlet-class>
