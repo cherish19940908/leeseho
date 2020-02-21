@@ -23,10 +23,13 @@ public class NavSearch implements partyCommandInter {
 	@Override
 	public String showData(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("navsearch시작");
+		request.setCharacterEncoding("UTF-8");
         String [] navloca = request.getParameterValues("location");
         String [] navtype = request.getParameterValues("type");
         String [] navprice = request.getParameterValues("price");
-       
+       for (int i = 0; i < navprice.length; i++) {
+		System.out.println(navprice[i]);
+	}
        DTO_AD dtoad = new DTO_AD();
        dtoad.setNavloca(navloca);
        dtoad.setNavtype(navtype);
