@@ -132,34 +132,41 @@
 
 	<section>
 
-		<div style="width: 1920px; >
+		<div style="width: 1920px;" >
 		
+		<%String file =article.getFile();
+		String[] array = file.split(",");
+		 
+		List<String> list = new ArrayList<>();
+		for (int i = 0; i < array.length; i++) {
+			list.add(array[i]);
+		} %>
 		
 			<div
 				style="width: 1920px; height: 350px; margin-top: 30px; ">
  
 				<div style="width: 380px; height: 350px;  display: inline-block;">
-					<img src="restaurantUpload/<%=article.getFile()%>" width="375px"
+					<img src="restaurantUpload/<%=list.get(0)%>" width="375px"
 						height="350px">
 				</div>
 				<div
 					style="width: 380px; height: 350px;  display: inline-block;">
-					<img src="restaurantUpload/<%=article.getFile()%>" width="375px"
+					<img src="restaurantUpload/<%=list.get(1)%>" width="375px"
 						height="350px">
 				</div>
 				<div
 					style="width: 380px; height: 350px;  display: inline-block;">
-					<img src="restaurantUpload/<%=article.getFile()%>" width="375px"
+					<img src="restaurantUpload/<%=list.get(2)%>" width="375px"
 						height="350px">
 				</div>
 				<div
 					style="width: 380px; height: 350px;  display: inline-block;">
-					<img src="restaurantUpload/<%=article.getFile()%>" width="375px"
+					<img src="restaurantUpload/<%=list.get(3)%>" width="375px"
 						height="350px">
 				</div>
 				<div
 					style="width: 380px; height: 350px;  display: inline-block;">
-					<img src="restaurantUpload/<%=article.getFile()%>" width="375px"
+					<img src="restaurantUpload/<%=list.get(4)%>" width="375px"
 						height="350px">
 				</div>
 			</div>
@@ -190,7 +197,7 @@
 						<div class="restauinfo"
 							style="margin-left: 269px;text-align: center;padding: 0;">
 							<h4>음식종류</h4>
-							<p><%=article.getType()%></p>
+							<p><%=article.getType()%>+<%=list.get(0) %>+<%=list.get(1) %></p>
 
 							<h4>식당 주소</h4>
 							<p>

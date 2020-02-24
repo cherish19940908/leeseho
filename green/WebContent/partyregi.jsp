@@ -55,6 +55,8 @@
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 	function parregi() {
+		
+		var title = party.title.value;
 		var email = party.email.value;
 		var phone = party.phone.value;
 		var rname = party.rname.value;
@@ -67,9 +69,11 @@
 		var preprice = party.preprice.value;
 		var ptalk = party.ptalk.value;
 
-		if (email == null || phone == null || rname == null || addno == null
-				|| addr == null || addr1 == null || pdate == null
-				|| pno == null || preprice == null || ptalk == null) {
+		
+		
+		if (title==""||email == "" || phone == "" || rname == ""|| addno == ""
+				|| addr == "" || addr1 == "" || pdate == ""
+				|| pno == "" || preprice == "" || ptalk == "") {
 			alert("입력되지 않은 사항이 있습니다.");
 		} else {
 			document.party.submit();
@@ -131,7 +135,7 @@
 	<%@include file = "header.jsp"%>
 
 	<section>
-		<form name="party" action="partyregi.bo" method="post" enctype="multipart/form-data">
+		<form name="party" action="partyregi.do" method="post" enctype="multipart/form-data">
 		<input type="hidden" id="id1" name="id1" value="<%=id1%>">
 		<input type="hidden" id="nick1" name="nick1" value="<%=nick1%>">
 			<div style="width: 1900px; height: 86px;"></div>
@@ -365,9 +369,6 @@
 									<option value="7">7명</option>
 									<option value="8">8명</option>
 								</select>
-								<!--  <input type="text" name="myung" class="f"
-								placeholder="모집인원을 입력하여 주십시오." onfocus="this.placeholder = ''"
-								onblur="this.placeholder = '모집인원을 입력하여 주십시오.'">-->
 							</div>
 						</td>
 					</tr>
@@ -380,8 +381,8 @@
 						<td>
 							<div>
 								<input type="text" name="preprice" class="f"
-									placeholder="1인당 예상 금액을 입력하여주세요." onfocus="this.placeholder = ''"
-									onblur="this.placeholder = '예상 금액을 입력하여주세요.'">
+									placeholder="인당 예상 금액을 입력하여주세요." onfocus="this.placeholder = ''"
+									onblur="this.placeholder = '인당 예상 금액을 입력하여주세요.'">
 							</div>
 						</td>
 					</tr>
@@ -409,7 +410,7 @@
 
 					<tr>
 						<td>
-							<button onClick="parregi()" type="submit" class="btn btn-success"
+							<button onClick="parregi()" type="button" class="btn btn-success"
 								style="width: 400px; height: 40px; margin-left: 9px;">모집하기</button>
 						</td>
 					</tr>

@@ -81,7 +81,7 @@
 						<td><a
 							href="partyinfore.do?pnum=<%=list.get(i).getPnum()%>"><%=list.get(i).getPreprice()%></a></td>
 						<td><a
-							href="partyinfore.do?pnum=<%=list.get(i).getPnum()%>"><%=list.get(i).getEmail()%></a></td>	
+							href="partyinfore.do?pnum=<%=list.get(i).getPnum()%>"><%=list.get(i).getNick()%></a></td>	
 						<td><a
 							href="partyinfore.do?pnum=<%=list.get(i).getPnum()%>"><%=list.get(i).getPdate()%></a></td>
 					</tr>

@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Action;
 import party.Preview;
+import resdat.resdatDTO;
+import restaurant.restaurantDTO;
 import restaurant_svc.ReviewListService;
 import vo.DTO_AD;
 import vo.PageInfo;
@@ -27,6 +29,19 @@ public class NavSearch implements partyCommandInter {
         String [] navloca = request.getParameterValues("location");
         String [] navtype = request.getParameterValues("type");
         String [] navprice = request.getParameterValues("price");
+        for (int i = 0; i < navloca.length; i++) {
+    		navloca[i]=new String(navloca[i].getBytes("ISO-8859-1"), "UTF-8");
+
+    	}
+        for (int i = 0; i < navtype.length; i++) {
+    		navtype[i]=new String(navtype[i].getBytes("ISO-8859-1"), "UTF-8");
+
+    	}
+       for (int i = 0; i < navprice.length; i++) {
+		navprice[i]=new String(navprice[i].getBytes("ISO-8859-1"), "UTF-8");
+
+	}
+       
        for (int i = 0; i < navprice.length; i++) {
 		System.out.println(navprice[i]);
 	}
@@ -141,6 +156,53 @@ public class NavSearch implements partyCommandInter {
 
 	@Override
 	public String search(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<resdatDTO> selelistmasjip(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+	@Override
+	public resdatDTO seleResdat(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int seleApplycount(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean Applyable(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public ArrayList<resdatDTO> selelistmasjipkor(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<resdatDTO> selelistmasjipchn(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DTO_AD seleRestau(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

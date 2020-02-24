@@ -7,6 +7,7 @@
 
 </head>
 <body>
+
 	<FORM action="restaurantList.do?command=navsearch" method="post" >
 		<div id="location">
 			<div id="location-bar">

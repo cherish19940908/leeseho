@@ -39,9 +39,9 @@
 <%@include file = "header.jsp"%>
 <div id="wrap_masjip" style="margin-top:100px; margin-bottom:100px; margin-left:340px;">
 <ul id="masjiplist" style="list-style:none; width:1200px;">
-<li><div id="masjipimg"><img src="img/masjip01.png"></div></li>
-<li><div id="masjipimg"><img src="img/masjip02.png"></div></li>
-<li><div id="masjipimg"><img src="img/masjip03.png"></div></li>
+<li><div id="masjipimg"><a href="masjiprec.jsp"><img src="img/masjip01.png"></a></div></li>
+<li><div id="masjipimg"><a href="masjipkor.jsp"><img src="img/masjip07-1.png"></a></div></li>
+<li><div id="masjipimg"><a href="masjipchn.jsp"><img src="img/masjip03.png"></a></div></li>
 <li><div id="masjipimg"><img src="img/masjip04.png"></div></li>
 <li><div id="masjipimg"><img src="img/masjip05.png"></div></li>
 <li><div id="masjipimg"><img src="img/masjip06.png"></div></li>

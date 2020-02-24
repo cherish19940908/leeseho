@@ -89,6 +89,41 @@ and price in
 	</select>
 	
 	
+	<!--    한식 맛집 베스트 평점 순    -->
+	<select id="selectmasjipkor" resultType="rs">
+		select resdat.rnum, avg(pyung) from resdat inner join restaurant where resdat.rnum = restaurant.rnum and restaurant.type='한식' group by rnum order by avg(pyung) desc limit 10;
+	</select>
+	
+	<!--    중식 맛집 베스트 평점 순    -->
+	<select id="selectmasjipchn" resultType="rs">
+		select resdat.rnum, avg(pyung) from resdat inner join restaurant where resdat.rnum = restaurant.rnum and restaurant.type='중식' group by rnum order by avg(pyung) desc limit 10;
+	</select>
+	
+	
+	<!--    일식 맛집 베스트 평점 순    -->
+	<select id="selectmasjipjpn" resultType="rs">
+		select resdat.rnum, avg(pyung) from resdat inner join restaurant where resdat.rnum = restaurant.rnum and restaurant.type='일식' group by rnum order by avg(pyung) desc limit 10;
+	</select>
+	
+	
+	<!--    양식 맛집 베스트 평점 순    -->
+	<select id="selectmasjipwest" resultType="rs">
+		select resdat.rnum, avg(pyung) from gresdat inner join restaurant where resdat.rnum = restaurant.rnum and restaurant.type='양식' group by rnum order by avg(pyung) desc limit 10;
+	</select>
+	
+	
+	<!--    세계음식 맛집 베스트 평점 순    -->
+	<select id="selectmasjipworld" resultType="rs">
+		select resdat.rnum, avg(pyung) from resdat inner join restaurant where resdat.rnum = restaurant.rnum and restaurant.type='세계음식' group by rnum order by avg(pyung) desc limit 10;
+	</select>
+	
+	
+	<!--    뷔페 맛집 베스트 평점 순    -->
+	<select id="selectmasjipwhat" resultType="rs">
+		select resdat.rnum, avg(pyung) from resdat inner join restaurant where resdat.rnum = restaurant.rnum and restaurant.type='뷔페' group by rnum order by avg(pyung) desc limit 10;
+	</select>
+	
+	
 	
 	
 	
@@ -98,7 +133,7 @@ and price in
 	</select>
 	
 	<!--   식당번호와 같은 식당 정보 찾아오기  -->
-	<select id="selectRestau" parameterType="Integer" resultType="rt">
+	<select id="selectRestau" parameterType="Integer" resultType="DAO_AD">
 		select * from restaurant where rnum = #{rnum};
 	</select>
 	

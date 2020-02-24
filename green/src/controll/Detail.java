@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import model.Action;
 import model.DTO;
 import party.Preview;
+import resdat.resdatDTO;
+import restaurant.restaurantDTO;
+import vo.DTO_AD;
 
 
 public class Detail implements partyCommandInter {
@@ -118,6 +121,69 @@ public class Detail implements partyCommandInter {
 
 	@Override
 	public String search(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public ArrayList<resdatDTO> selelistmasjip(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	
+
+
+
+	@Override
+	public resdatDTO seleResdat(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public int seleApplycount(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+	@Override
+	public boolean Applyable(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+	@Override
+	public ArrayList<resdatDTO> selelistmasjipkor(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public ArrayList<resdatDTO> selelistmasjipchn(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public DTO_AD seleRestau(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

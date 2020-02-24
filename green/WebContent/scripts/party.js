@@ -11,46 +11,46 @@ $(document).ready(function(){
 	});
 });
 $(document).ready(function(){
-	$(".partypic[name$='sam']").mouseover(function(){
+	$(".partypic[name$='kor']").mouseover(function(){
 		//$(".partypic[name$='sam']").css("background","black");
-		$("#samsin").css("visibility","visible");
+		$("#korea").css("visibility","visible");
 		});
-	$(".partypic[name$='sam']").mouseout(function(){
-		$("#samsin").css("visibility","hidden");
-		});
-	
-	$(".partypic[name$='jock']").mouseover(function(){
-		$("#jocksin").css("visibility","visible");
-		});
-	$(".partypic[name$='jock']").mouseout(function(){
-		$("#jocksin").css("visibility","hidden");
+	$(".partypic[name$='kor']").mouseout(function(){
+		$("#korea").css("visibility","hidden");
 		});
 	
-	$(".partypic[name$='bos']").mouseover(function(){
-		$("#bossin").css("visibility","visible");
+	$(".partypic[name$='chn']").mouseover(function(){
+		$("#china").css("visibility","visible");
 		});
-	$(".partypic[name$='bos']").mouseout(function(){
-		$("#bossin").css("visibility","hidden");
-		});
-	
-	$(".partypic[name$='chi']").mouseover(function(){
-		$("#chisin").css("visibility","visible");
-		});
-	$(".partypic[name$='chi']").mouseout(function(){
-		$("#chisin").css("visibility","hidden");
+	$(".partypic[name$='chn']").mouseout(function(){
+		$("#china").css("visibility","hidden");
 		});
 	
-	$(".partypic[name$='bang']").mouseover(function(){
-		$("#bangsin").css("visibility","visible");
+	$(".partypic[name$='jpn']").mouseover(function(){
+		$("#japan").css("visibility","visible");
 		});
-	$(".partypic[name$='bang']").mouseout(function(){
-		$("#bangsin").css("visibility","hidden");
+	$(".partypic[name$='jpn']").mouseout(function(){
+		$("#japan").css("visibility","hidden");
 		});
 	
-	$(".partypic[name$='gob']").mouseover(function(){
-		$("#gobsin").css("visibility","visible");
+	$(".partypic[name$='wes']").mouseover(function(){
+		$("#western").css("visibility","visible");
 		});
-	$(".partypic[name$='gob']").mouseout(function(){
-		$("#gobsin").css("visibility","hidden");
+	$(".partypic[name$='wes']").mouseout(function(){
+		$("#western").css("visibility","hidden");
+		});
+	
+	$(".partypic[name$='wor']").mouseover(function(){
+		$("#world").css("visibility","visible");
+		});
+	$(".partypic[name$='wor']").mouseout(function(){
+		$("#world").css("visibility","hidden");
+		});
+	
+	$(".partypic[name$='what']").mouseover(function(){
+		$("#whatever").css("visibility","visible");
+		});
+	$(".partypic[name$='what']").mouseout(function(){
+		$("#whatever").css("visibility","hidden");
 		});
 	});

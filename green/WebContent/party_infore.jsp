@@ -2,7 +2,8 @@
 <%@page import="java.text.DateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*"%>
-<%@ page import="party.PartyDTO"%>
+<%@ page import="party.*"%>
+<%@ page import="controll.*"%>
 <%
 	ArrayList<PartyDTO> sic = (ArrayList<PartyDTO>)request.getAttribute("sic");
 %>
@@ -14,6 +15,10 @@ String nick1 = null;
 if((String)session.getAttribute("id")!=null){
    id1 = (String)session.getAttribute("id");
    nick1 = (String)session.getAttribute("nick"); }
+
+partyService ps = new partyService();
+request.setAttribute("pnum", sic.get(0).getPnum());
+int Apply_count  = ps.seleApplycount(request, response);
 %>
 
 <head>
@@ -163,23 +168,24 @@ if((String)session.getAttribute("id")!=null){
 							<div
 								style="margin: 3%; width: 94%; height: 30%; border-bottom: solid 0.5px #eaeaea;">
 								<%
-									int per = 0;
-															per = (6 / 8);
-								%>
+										int per = 0;
+										per = (Apply_count)*100/Integer.parseInt(sic.get(0).getPno());							
+									%>
 								<table style="width: 100%;">
 									<tbody>
 										<tr>
 											<td style="width: 70%;"><font
-												style="font-size: 0.7cm; color: #23A41A; width: 100%; height: 20px; font-weight: 900; margin-bottom: 10px;">6명
-													신청</font></td>
+												style="font-size: 0.7cm; color: #23A41A; width: 100%; height: 20px; font-weight: 900; margin-bottom: 10px;"><%=Apply_count %>명
+														신청</font></td>
 											<td><div
-													style="border: solid 1px #23A41A; border-radius: 5px; width: 40px; height: 25px; font-size: 0.5cm; text-align: center; color: #23A41A;">75%
+													style="border: solid 1px #23A41A; border-radius: 5px; width: 50px; height: 25px; font-size: 0.5cm; text-align: center; color: #23A41A;"><%=per%>%
 												</div></td>
 										</tr>
 										<tr style="height: 5px;"></tr>
 										<tr>
-											<td style="background: #eaeaea; height: 10px;"></td>
-											<td style="background: #f6f6f6;"></td>
+											<td colspan="2" width="100%">
+												<div style="float:left; background: green; height: 10px; width:<%=per%>%;"></div>
+												<div style="float:left; background: #f6f6f6;height: 10px; width:<%=100-per%>%;"></div>
 										</tr>
 										<tr style="height: 5px;"></tr>
 										<tr>
@@ -196,7 +202,8 @@ if((String)session.getAttribute("id")!=null){
 							</div>
 							<div style="margin: 3%; width: 94%; height: 50%; padding: 5px;">
 								<font
-									style="font-size: 0.5cm; width: 100%; height: 20px; font-weight: 900;">주최자</font>
+									style="font-size: 0.5cm; width: 100%; height: 20px; font-weight: 900;">주최자
+										: <%=sic.get(0).getNick()%></font>
 								<br>
 								<p style="font-size: 0.35cm; margin-top: 15px;">
 									<%=sic.get(0).getPtalk()%>

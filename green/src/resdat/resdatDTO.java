@@ -8,6 +8,7 @@ public class resdatDTO {
 	int pyung;
 	String dcontent;
 	String date;
+	double avg_pyung;
 
 	public int getDnum() {
 		return dnum;
@@ -51,4 +52,13 @@ public class resdatDTO {
 	public void setDate(String date) {
 		this.date = date;
 	}
+	public double getAvg_pyung() {
+		return avg_pyung;
+	}
+	public void setAvg_pyung(double avg_pyung) {
+		this.avg_pyung = avg_pyung;
+	}
+	
+	
+	
 }

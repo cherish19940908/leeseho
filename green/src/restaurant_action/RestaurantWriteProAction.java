@@ -1,6 +1,9 @@
 package restaurant_action;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Enumeration;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -45,7 +48,19 @@ public class RestaurantWriteProAction implements Action {
 		dto.setPostnum(multi.getParameter("postnum"));
 		dto.setDethome(multi.getParameter("dethome"));	
 		dto.setReadcount(0);
-		dto.setFile(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
+		Enumeration files = multi.getFileNames();
+		String file1 =(String) files.nextElement();		
+		String originalfilename = multi.getOriginalFileName(file1);	
+		String file2 =(String) files.nextElement();
+		String originalfilename2 = multi.getOriginalFileName(file2);
+		String file3 =(String) files.nextElement();
+		String originalfilename3 = multi.getOriginalFileName(file3);
+		String file4 =(String) files.nextElement();
+		String originalfilename4 = multi.getOriginalFileName(file4);
+		String file5 =(String) files.nextElement();
+		String originalfilename5 = multi.getOriginalFileName(file5);
+		System.out.println("�������ϸ�"+originalfilename2+"<br/>");
+		dto.setFile(originalfilename+","+originalfilename2+","+originalfilename3+","+originalfilename4+","+originalfilename5);
 		String local = multi.getParameter("home");
 		System.out.println(local);
 		if (local.contains("서울")==true) {

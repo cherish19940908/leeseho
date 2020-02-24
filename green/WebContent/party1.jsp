@@ -4,14 +4,16 @@
 <% 
 String s = URLEncoder.encode("중식","UTF-8");
  String k = URLEncoder.encode("한식","UTF-8");
-  String j =  URLEncoder.encode("일식","UTF-8");;
-   String l =  URLEncoder.encode("양식","UTF-8");;%>
+  String j =  URLEncoder.encode("일식","UTF-8");
+   String l =  URLEncoder.encode("양식","UTF-8");
+    String m =  URLEncoder.encode("세계음식","UTF-8");
+   String n =  URLEncoder.encode("뷔페","UTF-8");%>
 <head>
 <title>Party</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="css/gpstyleparty.css">
 <link rel="stylesheet" type="text/css" href="css/loginstyle.css"/>
-<link rel="stylesheet" type="text/css" href="css/party1.css"/>
+<link rel="stylesheet" type="text/css" href="css/party.css"/>
 
 <link rel='stylesheet' type='text/css'
 	href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic'>
@@ -40,60 +42,48 @@ String s = URLEncoder.encode("중식","UTF-8");
 <img src="img/ptitle.png" width="100%" height="100%">
 </div>
 <div id="pic">
-<div id="section">
+<div id="section" style="border:none;">
 
 <div class="picbox">
-<a href="partycatere.bo?cate=<%=k%>"><div class="partypic" name="sam">
-<div id="samsin" align="center">안녕하세요.</div>
-</div>
-<div class="pictitle">
-파티제목
-</div></a>
-</div>
-
-<div class="picbox">
-<a href="partycatere.bo?cate=<%=s%>"><div class="partypic" name="jock">
-<div id="jocksin" align="center">안녕하세요.</div>
-</div>
-<div class="pictitle">
-파티제목
-</div></a>
+<a href="partycatere.do?cate=<%=k%>"><div class="partypic" name="kor">
+<div id="korea" align="center"></div>
+</div><div class="pictitle" >한   &nbsp;&nbsp;&nbsp; 식</div>
+</a>
 </div>
 
 <div class="picbox">
-<a href="partycatere.bo?cate=<%=j%>"><div class="partypic" name="bos">
-<div id="bossin" align="center">안녕하세요.</div>
-</div>
-<div class="pictitle">
-파티제목
-</div></a>
+<a href="partycatere.do?cate=<%=s%>"><div class="partypic" name="chn">
+<div id="china" align="center"></div>
+</div><div class="pictitle">중   &nbsp;&nbsp;&nbsp; 식</div>
+</a>
 </div>
 
 <div class="picbox">
-<a href="partycatere.bo?cate=<%=l%>"><div class="partypic" name="chi">
-<div id="chisin"  align="center">안녕하세요.</div>
-</div>
-<div class="pictitle">
-파티제목
-</div></a>
+<a href="partycatere.do?cate=<%=j%>"><div class="partypic" name="jpn">
+<div id="japan" align="center"></div>
+</div><div class="pictitle">일   &nbsp;&nbsp;&nbsp; 식</div>
+</a>
 </div>
 
 <div class="picbox">
-<a href="partycatere.bo?cate=세계음식"><div class="partypic" name="bang">
-<div id="bangsin" align="center">안녕하세요.</div>
-</div>
-<div class="pictitle">
-파티제목
-</div></a>
+<a href="partycatere.do?cate=<%=l%>"><div class="partypic" name="wes">
+<div id="western"  align="center"></div>
+</div><div class="pictitle">양   &nbsp;&nbsp;&nbsp; 식</div>
+</a>
 </div>
 
 <div class="picbox">
-<a href="partycate.bo?cate=뷔페"><div class="partypic" name="gob">
-<div id="gobsin" align="center">안녕하세요.</div>
+<a href="partycatere.do?cate=<%=m%>"><div class="partypic" name="wor">
+<div id="world" align="center"></div>
+</div><div class="pictitle">세 계  &nbsp;&nbsp; 음 식</div>
+</a>
 </div>
-<div class="pictitle">
-파티제목
-</div></a>
+
+<div class="picbox">
+<a href="partycate.do?cate=<%=n%>"><div class="partypic" name="what">
+<div id="whatever" align="center"></div>
+</div><div class="pictitle">뷔   &nbsp;&nbsp;&nbsp; 페</div>
+</a>
 </div>
 
 </div>

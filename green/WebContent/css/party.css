@@ -15,6 +15,7 @@ article {
 	height: 300px;
 	color: white;
 	font-size: 5cm;
+	background-size: 100% 100%;
 }
 
 #ptitle {
@@ -52,77 +53,82 @@ article {
 	height: 60px;
 	margin: 0px 10px 0px 10px;
 	border: solid 1px green;
+	font-size:1.1cm; 
+	font-weight:700; 
+	text-align:center;
 }
+
 
 .partypic {
 	float: left;
 	width: 400px;
-	height: 300px;
+	height: 360px;
 	margin: 10px 10px 0px 10px;
 	border: solid 1px green;
 }
 
-.partypic[name$="sam"] {
+.partypic[name$="kor"] {
 	float: left;
 	width: 400px;
 	height: 300px;
 	margin: 10px 10px 0px 10px;
 	border: solid 1px green;
-	background-image: url("../img/sam par.jpg");
+	background-image: url("../img/korea.jpg");
 	background-size: 400px 300px;
+	
 }
 
-.partypic[name$="jock"] {
+.partypic[name$="chn"] {
 	float: left;
 	width: 400px;
 	height: 300px;
 	margin: 10px 10px 0px 10px;
 	border: solid 1px green;
-	background-image: url("../img/jock par.jpg");
+	background-image: url("../img/china.jpg");
 	background-size: 400px 300px;
 }
 
-.partypic[name$="bos"] {
+.partypic[name$="jpn"] {
 	float: left;
 	width: 400px;
 	height: 300px;
 	margin: 10px 10px 0px 10px;
 	border: solid 1px green;
-	background-image: url("../img/bos par.jpg");
+	background-image: url("../img/japan.jpg");
 	background-size: 400px 300px;
 }
 
-.partypic[name$="chi"] {
+.partypic[name$="wes"] {
 	float: left;
 	width: 400px;
 	height: 300px;
 	margin: 10px 10px 0px 10px;
 	border: solid 1px green;
-	background-image: url("../img/chi par.jpg");
+	background-image: url("../img/western.jpg");
 	background-size: 400px 300px;
 }
 
-.partypic[name$="bang"] {
+.partypic[name$="wor"] {
 	float: left;
 	width: 400px;
 	height: 300px;
 	margin: 10px 10px 0px 10px;
 	border: solid 1px green;
-	background-image: url("../img/bang par.jpg");
+	background-image: url("../img/world.jpg");
 	background-size: 400px 300px;
 }
 
-.partypic[name$="gob"] {
+.partypic[name$="what"] {
 	float: left;
 	width: 400px;
 	height: 300px;
 	margin: 10px 10px 0px 10px;
 	border: solid 1px green;
-	background-image: url("../img/gob par.jpg");
+	background-image: url("../img/whatever.jpg");
 	background-size: 400px 300px;
 }
 
-#samsin {
+#korea {
 	width: 400px;
 	height: 300px;
 	color: black;
@@ -134,7 +140,7 @@ article {
 	opacity: 0.9;
 }
 
-#jocksin {
+#china {
 	width: 400px;
 	height: 300px;
 	color: black;
@@ -146,7 +152,7 @@ article {
 	opacity: 0.8;
 }
 
-#chisin {
+#japan {
 	width: 400px;
 	height: 300px;
 	color: black;
@@ -158,7 +164,7 @@ article {
 	opacity: 0.8;
 }
 
-#bossin {
+#western {
 	width: 400px;
 	height: 300px;
 	color: black;
@@ -170,7 +176,7 @@ article {
 	opacity: 0.8;
 }
 
-#bangsin {
+#world {
 	width: 400px;
 	height: 300px;
 	color: black;
@@ -182,7 +188,7 @@ article {
 	opacity: 0.8;
 }
 
-#gobsin {
+#whatever {
 	width: 400px;
 	height: 300px;
 	color: black;

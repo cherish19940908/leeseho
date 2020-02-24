@@ -3,14 +3,14 @@ package restaurant;
 import java.sql.*;
 import java.util.ArrayList;
 
-import restaurant.restaurantDTO;
+import vo.DTO_AD;
 
 public class restaurantDAO {
 	private final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	private final String DB_URL = "jdbc:mysql://localhost/gpteam?useSSL=false&useUnicode=true&characterEncoding=utf8";
 
 	private final String USER_NAME = "root";
-	private final String PASSWORD = "12345";
+	private final String PASSWORD = "1q2w3e4r@";
 
 	Connection conn = null;
 	Statement state = null;
@@ -19,7 +19,7 @@ public class restaurantDAO {
 		try {
 			Class.forName(JDBC_DRIVER);
 		} catch (Exception e) {
-			System.out.println("오류가 떴어요");
+			System.out.println("restaurantDAO DB 진입에 오류가 있어요1");
 		}
 
 	}
@@ -29,7 +29,7 @@ public class restaurantDAO {
 		try {
 			conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
 		} catch (Exception e) {
-			System.out.println("오류가 떴어요");
+			System.out.println("restaurantDAO DB 진입에 오류가 있어요2");
 
 		}
 	}
@@ -48,16 +48,16 @@ public class restaurantDAO {
 		return -1; // 오류가 발생했을 때
 	}
 
-	public restaurantDTO getRestaurant(int rnum) {
+	public DTO_AD getRestaurant(int rnum) {
 		entdb();
-		restaurantDTO rdto = null;
+		DTO_AD rdto = null;
 		try {
 			state = conn.createStatement(); //
 			String s = "select * from restaurant where rnum = "+ rnum +";";
 			ResultSet aa = state.executeQuery(s);
 
 			while (aa.next()) {
-				rdto = new restaurantDTO();
+				rdto = new DTO_AD();
 				rdto.setRnum(aa.getInt("rnum"));
 				rdto.setId(aa.getString("id"));
 				rdto.setName(aa.getString("name"));
@@ -71,11 +71,16 @@ public class restaurantDAO {
 				rdto.setType(aa.getString("type"));
 				rdto.setPrice(aa.getString("price"));
 				rdto.setFile(aa.getString("file"));
+				rdto.setParking(aa.getString("parking"));
+				rdto.setStart_time(aa.getString("start_time"));
+				rdto.setFinish_time(aa.getString("finish_time"));
+				rdto.setBreak_time(aa.getString("break_time"));
+				
 				
 				
 			}
 		} catch (Exception e) {
-			System.out.println("이상이 있3");
+			System.out.println("restaurant에서 출력에 오류"+e);
 		}
 
 		return rdto;

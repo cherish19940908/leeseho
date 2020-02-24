@@ -5,8 +5,17 @@ public class ApplyDTO {
 	int pnum;
 	String id;
 	String date;
+	int count_apply;  // 신청한 명수 뽑아오는 DTO
 	
 	
+	
+	
+	public int getCount_apply() {
+		return count_apply;
+	}
+	public void setCount_apply(int count_apply) {
+		this.count_apply = count_apply;
+	}
 	public int getPsnum() {
 		return psnum;
 	}

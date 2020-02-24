@@ -2,7 +2,8 @@
 <%@page import="java.text.DateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*"%>
-<%@ page import="party.PartyDTO"%>
+<%@ page import="party.*"%>
+<%@ page import="controll.*"%>
 <%
 	ArrayList<PartyDTO> sic = (ArrayList<PartyDTO>) request.getAttribute("sic");
 %>
@@ -11,6 +12,13 @@
 	if ((String) session.getAttribute("id") != null) {
 		idid = (String) session.getAttribute("id");
 	}
+	
+	
+	partyService ps = new partyService();
+	request.setAttribute("pnum", sic.get(0).getPnum());
+	int Apply_count  = ps.seleApplycount(request, response);
+	boolean Applyable = ps.Applyable(request, response);
+	
 %>
 <head>
 <title>Party Information</title>
@@ -35,10 +43,21 @@
 <script>
 	function party_apply() {
 		var idid1 = papply.id1.value;
+		var ac = parseInt(papply.ac.value);
+		var pno = parseInt(papply.pno.value);
+		var aa = papply.aa.value;
+		
 		if (idid1 == "null") {
 			alert("로그인이 필요합니다.");
 			location.href = "loginpage.jsp";
-		} else {
+		}
+		else if(aa=="false"){
+			alert("파티신청기간이 아닙니다.");
+		}
+		else if(ac==pno){
+			alert("파티 정원이 모두 찼습니다.");			
+		}
+		else {
 			window.open("applycheck.jsp?pnum="+papply.pnum.value+"&id=" + idid1 + "&rname="+papply.rname.value + "&pdate="+papply.pdate.value + "&ptime="+papply.ptime.value + "&addno="+papply.addno.value + "&addr1="+papply.addr1.value + 
 					"&addr2="+papply.addr2.value + "&addr="+papply.addr.value + "&ptalk="+papply.ptalk.value, "hjhj",
 			"width=650,height=620");  // 새창을 띄워주는 코드 사이즈 지정과 함께
@@ -54,6 +73,9 @@
 	<div style="width: 1950px; height: 86px;"></div>
 	<article></article>
 	<form action="party_apply.jsp" name="papply">
+	<input type="hidden" id="aa" name="aa" value="<%=Applyable%>">
+	<input type="hidden" id="ac" name="ac" value="<%=Apply_count%>"> 
+	<input type="hidden" id="pno" name="pno" value="<%=sic.get(0).getPno()%>"> 
 	<input type="hidden" id="pnum" name="pnum" value="<%=sic.get(0).getPnum()%>"> 
 		<input type="hidden" id="id1" name="id1" value="<%=idid%>"> 
 		<input	type="hidden" id="rname" name="rname"value="<%=sic.get(0).getRname()%>"> 
@@ -147,22 +169,24 @@
 									style="margin: 3%; width: 94%; height: 30%; border-bottom: solid 0.5px #eaeaea;">
 									<%
 										int per = 0;
-										per = (6 / 8);
+										per = (Apply_count)*100/Integer.parseInt(sic.get(0).getPno());							
 									%>
 									<table style="width: 100%;">
 										<tbody>
 											<tr>
 												<td style="width: 70%;"><font
-													style="font-size: 0.7cm; color: #23A41A; width: 100%; height: 20px; font-weight: 900; margin-bottom: 10px;">6명
+													style="font-size: 0.7cm; color: #23A41A; width: 100%; height: 20px; font-weight: 900; margin-bottom: 10px;"><%=Apply_count %>명
 														신청</font></td>
 												<td><div
-														style="border: solid 1px #23A41A; border-radius: 5px; width: 40px; height: 25px; font-size: 0.5cm; text-align: center; color: #23A41A;">75%
+														style="border: solid 1px #23A41A; border-radius: 5px; width: 50px; height: 25px; font-size: 0.5cm; text-align: center; color: #23A41A;"><%=per%>%
 													</div></td>
 											</tr>
 											<tr style="height: 5px;"></tr>
 											<tr>
-												<td style="background: #eaeaea; height: 10px;"></td>
-												<td style="background: #f6f6f6;"></td>
+												<td colspan="2" width="100%">
+												<div style="float:left; background: green; height: 10px; width:<%=per%>%;"></div>
+												<div style="float:left; background: #f6f6f6;height: 10px; width:<%=100-per%>%;"></div>
+												</td>
 											</tr>
 											<tr style="height: 5px;"></tr>
 											<tr>

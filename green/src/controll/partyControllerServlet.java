@@ -1,4 +1,5 @@
-package controll; //����-> url ����
+package controll;
+
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,7 +22,7 @@ public class partyControllerServlet extends HttpServlet {
 		partyCommandInter inter = null;
 		String viewName = "";
 		try {
-			request.setCharacterEncoding("UTF-8");
+			request.setCharacterEncoding("UTF-8");			
 			String RequestURI = request.getRequestURI();
 			String contextPath = request.getContextPath();
 			String rung = RequestURI.substring(contextPath.length());

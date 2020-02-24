@@ -30,7 +30,7 @@
 <script type="text/javascript" src="_scripts/login.js"></script>
 </head>
 <body>
-	 <%
+	<%
 		PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
 		int listCount = pageInfo.getListCount();
 		int nowPage = pageInfo.getPage();
@@ -61,6 +61,16 @@
 				style="width: 1315px; min-height: 800px; float: left; position: relative; left: 200px;">
 				<%
 					for (int i = 0; i < articleList.size(); i++) {
+						String file =articleList.get(i).getFile();
+						String[] array = file.split(",");
+						 
+						List<String> list = new ArrayList<>();
+						for (int i2 = 0; i2 < array.length; i2++) {
+							list.add(array[i2]);
+						}
+
+
+				
 				%>
 
 
@@ -69,10 +79,10 @@
 						<div style="width: 1316px; height: 255px; margin-top: 30px">
 							<div
 								style="margin-left: 243px; border-bottom : solid 1px;border-color:#dbdbdb; width: 66%; min-height: 283px;">
-
+                                
 								<a href="restaurantDetail.bo?rnum=<%=articleList.get(i).getRnum()%>&page=<%=nowPage%>"><span
 									style="position: relative; top: 25px;"><img
-										src="restaurantUpload/<%=articleList.get(i).getFile()%>"
+										src="restaurantUpload/<%=list.get(0)%>"
 										style="width: 340px;height: 220px;"></span></a> <span
 									style="width: 200px; height: 50px; position: relative; left: 35px; bottom: 180px; font-size: 35px;"><%=articleList.get(i).getStore()%></span>
 								<span

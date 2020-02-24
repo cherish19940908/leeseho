@@ -62,7 +62,7 @@ public class ReviewDAO {
 		System.out.println("4번"+page+limit);
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String board_list_sql="select * from board limit ?,10";
+		String board_list_sql="select * from board order by rnum desc limit ?,10";
 		ArrayList<ReviewBean> articleList = new ArrayList<ReviewBean>();
 		ReviewBean board = null;
 		int startrow=(page-1)*10;

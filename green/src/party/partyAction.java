@@ -93,12 +93,35 @@ public class partyAction {
 		sqlSession.close();
 	}
 	
+	
 	public boolean selectApply(ApplyDTO adto) {
 		String psnum = null;
 		SqlSession sqlSession = factory.openSession();
 		psnum = sqlSession.selectOne("selectApply",adto);
 		sqlSession.close();
 		if(psnum !=null) {
+			return true;
+			}
+			return false;
+	}
+	
+	public int selectApplycount(int pnum) {
+		int Apply_count = 0;
+		SqlSession sqlSession = factory.openSession();
+		Apply_count = sqlSession.selectOne("selectApplycount",pnum);
+		sqlSession.close();
+		if(Apply_count != 0) {
+			return Apply_count;
+			}
+			return 0;
+	}
+	
+	public boolean Applyable(int pnum) {
+		int Applyable = 0;
+		SqlSession sqlSession = factory.openSession();
+		Applyable = sqlSession.selectOne("ApplyAble",pnum);
+		sqlSession.close();
+		if(Applyable != 0) {
 			return true;
 			}
 			return false;

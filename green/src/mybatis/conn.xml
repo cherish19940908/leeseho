@@ -11,7 +11,7 @@
 		<typeAlias type="party.Preview" alias="pr"/>
 		<typeAlias type="party.ApplyDTO" alias="ap"/>
 		<typeAlias type="resdat.resdatDTO" alias="rs"/>
-		<typeAlias type="restaurant.restaurantDTO" alias="rt"/>
+		
 	</typeAliases>
 
 

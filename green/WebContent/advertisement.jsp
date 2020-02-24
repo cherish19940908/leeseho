@@ -462,7 +462,17 @@
 							<td>
 								<div>
 									<input type="file" class="f" name="filename"
-										required="required">
+										required="required" >
+										<input type="file" class="f" name="filename2"
+										required="required" >
+										<input type="file" class="f" name="filename3"
+										required="required" >
+										<input type="file" class="f" name="filename4"
+										required="required" >
+										<input type="file" class="f" name="filename5"
+										required="required" >
+								
+								
 								</div>
 							</td>
 						</tr>
